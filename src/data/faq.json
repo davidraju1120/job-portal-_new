@@ -1,0 +1,34 @@
+[
+    {
+        "question": "What is HireHub?",
+        "answer": "HireHub is a job portal application that allows companies to post job listings and candidates to browse, save, and apply for those jobs."
+    },
+    {
+        "question": "How do I create an account on HireHub?",
+        "answer": "To create an account on HireHub, click on the 'Sign Up' button on the homepage, fill out the registration form with your details, and verify your email address to complete the registration process."
+    },
+    {
+        "question": "How can I post a job listing?",
+        "answer": "Once you're logged in as an employer, go to the 'Post a Job' section, fill in the job details, and submit the form. Your listing will be reviewed and published once approved."
+    },
+    {
+        "question": "How can I apply for a job?",
+        "answer": "Browse through the job listings, select the positions you're interested in, and click 'Apply'. Follow the instructions to upload your resume and cover letter, and submit your application."
+    },
+    {
+        "question": "Can I save jobs for later?",
+        "answer": "Yes, you can save jobs by clicking on the 'Save' button next to the job listing. Saved jobs will be available in your profile under the 'Saved Jobs' section."
+    },
+    {
+        "question": "How can I update my profile information?",
+        "answer": "To update your profile information, log in to your account, go to the 'Profile' section, and edit your details. Make sure to save any changes you make."
+    },
+    {
+        "question": "What should I do if I forget my password?",
+        "answer": "If you forget your password, click on the 'Forgot Password?' link on the login page, enter your email address, and follow the instructions sent to your email to reset your password."
+    },
+    {
+        "question": "How can I contact customer support?",
+        "answer": "You can contact customer support by visiting the 'Contact Us' page on our website, filling out the contact form, or reaching out to us via email at contact.hammadk@gmail.com"
+    }
+]
