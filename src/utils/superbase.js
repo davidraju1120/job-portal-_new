@@ -1,20 +1,8 @@
-
+// Supabase singleton client for use with Supabase Auth only
 import { createClient } from '@supabase/supabase-js';
 
- export const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+export const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
-const supabaseClient = async(supabaseAccessToken)=>{
-    const supabase = createClient(supabaseUrl, supabaseKey, {
-        global: {
-            headers: {
-                Authorization: `Bearer ${supabaseAccessToken}`,
-            },
-        },
+export const supabase = createClient(supabaseUrl, supabaseKey);
 
-    });
-
-    return supabase;
-};
-    
-export default supabaseClient;    
+export default supabase;

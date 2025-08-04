@@ -1,4 +1,4 @@
-import { getJobs } from '@/api/apiJobs'
+import { getjobs } from '@/api/apiJobs'
 import { getCompanies } from '@/api/apiCompanies';
 import Jobcard from '@/components/Job-card'
 import { recommendJobs } from '@/lib/ai-utils'
@@ -28,7 +28,7 @@ const{
   data: Jobs,
  loading: loadingJobs,
 
-} =  useFetch(getJobs, {
+} =  useFetch(getjobs, {
   location,
   company_id,
   searchQuery,

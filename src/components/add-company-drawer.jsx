@@ -24,6 +24,7 @@ const schema = z.object({
     ),
 
 });
+import { useState } from 'react';
 const AddCompanyDrawer = ({fetchCompanies}) => {
     const {
         register,
@@ -39,15 +40,26 @@ const AddCompanyDrawer = ({fetchCompanies}) => {
         data: dataAddCompany,
         fn: fnAddCompany,
         } = useFetch(addNewCompany);
- const onSubmit= async(data)=>{
-  fnAddCompany({
-    ...data,
-    logo: data.logo[0],
-  });
+ const [successMsg, setSuccessMsg] = useState("");
+ const onSubmit = async (data) => {
+   setSuccessMsg("");
+   const result = await fnAddCompany({
+     ...data,
+     logo: data.logo[0],
+   });
+   if (result && result.length > 0) {
+     setSuccessMsg("Company added successfully!");
+     fetchCompanies();
+     // Optionally clear form fields here if needed
+   }
  };
+
  useEffect(() => {
-    if(dataAddCompany?.length > 0) fetchCompanies();
- },[loadingAddCompany]);
+   if (dataAddCompany?.length > 0) {
+     setSuccessMsg("Company added successfully!");
+     fetchCompanies();
+   }
+ }, [dataAddCompany]);
 
   return (
     <Drawer>
@@ -72,14 +84,16 @@ const AddCompanyDrawer = ({fetchCompanies}) => {
          onClick={handleSubmit(onSubmit)}
          variant="destructive"
          className="w-40"
-         >Add</Button>
+         disabled={loadingAddCompany}
+         >{loadingAddCompany ? "Adding..." : "Add"}</Button>
       </form>
       {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
       {errors.logo && <p className='text-red-500'>{errors.logo.message}</p>}
-       {errorAddCompany?.message && (
-        <p className='text-red-500'> {errorAddCompany?.message}</p>
-       )}
-       {loadingAddCompany && <BarLoader width={"100%"} color='#f89655'/> }
+      {errorAddCompany && (
+        <p className='text-red-500'>Error: {errorAddCompany.message || "Could not add company. Check logo type, network, or permissions."}</p>
+      )}
+      {successMsg && <p className='text-green-600'>{successMsg}</p>}
+      {loadingAddCompany && <BarLoader width={"100%"} color='#f89655'/> }
       <DrawerFooter>
         
         <DrawerClose asChild>
